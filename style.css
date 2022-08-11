@@ -7,7 +7,6 @@
 :root {
     --ff-heading: 'Staatliches', cursive; 
     --ff-main: 'Palanquin', sans-serif;
-
     --hue: 218;
     --bg-heading: hsl(var(--hue), 17%, 62%, 1);
     --bg-logo: hsl(275, 18%, 79%, 1);
@@ -15,7 +14,6 @@
     --fc-heading: hsl(var(--hue), 0%, 100%, 1);
     --fc-main: hsl(274, 84%, 12%, 1);
     --fc-span: hsla(232, 17%, 35%, 1); 
-
     font-size: 62.5%;
     --fs-heading: 4.0rem;
     --fs-main: 2.0rem;
@@ -58,7 +56,6 @@ main p {
     line-height: 3.0rem;
     font-size: var(--fs-main);
     padding-bottom: 6.3rem;
-    
 }
 
 .card {
@@ -113,10 +110,87 @@ main p {
     }  
 }
 
-@media (min-width: 700px) {
-  .card p {
-    position: absolute;
-    right: 10.0rem;
-    top: 3.0rem;
-  }
+@media (min-width: 930px) {
+    :root {
+        --ff-footer: 'Open Sans', sans-serif;
+        --hue: 232;
+        --fc-footer: hsl(var(--hue), 17%, 35%, 1);
+    }
+
+    .page {
+        display: grid;
+        grid-template-columns: 377px 1fr;
+        grid-template-areas: "header main";
+    }
+
+    header {
+        grid-area: header;
+        content: "";
+    }
+
+    main {
+        grid-area: main;
+    }
+
+    main > p {
+        display: none;
+    }
+
+    .cards {
+        display: grid;
+        grid-template-areas: 
+        "card1 card2 card3"
+        "card4 card2 card6"
+        "card4 card5 card6"; 
+    }
+
+    main div:nth-child(1) {
+        grid-area: card1;
+    }
+
+    main div:nth-child(2) {
+        grid-area: card2;
+    }
+
+    main div:nth-child(3) {
+        grid-area: card3;
+    }
+
+    main div:nth-child(4) {
+        grid-area: card4;
+    }
+
+    main div:nth-child(5) {
+        grid-area: card5;
+    }
+
+    main div:nth-child(6) {
+        grid-area: card6;
+    }
+
+    .card img {
+        padding: 3.2rem;
+    }
+    
+    .cards .card p {
+        display: none;
+    }
+
+    .text-footer {
+        display: block;
+    }
+
+    .text-footer {
+        font-family: var(--ff-footer);
+        font-size: 1.4rem; 
+        padding: 0;
+    }
+
+    .text-footer a {
+        font-family: var(--ff-footer);
+        font-size: 1.4rem;
+        text-decoration: none;
+        color: var(--fc-footer);
+        font-weight: 700;
+    }
 }
