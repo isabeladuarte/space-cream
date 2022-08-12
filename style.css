@@ -28,6 +28,10 @@ header {
    padding-bottom: 2.9rem;
 }
 
+header p {
+    display: none;
+}
+
 header h1 {
     font-family: var(--ff-heading);
     background-color: var(--bg-logo);
@@ -49,6 +53,17 @@ main {
     padding: 1.4rem 3.2rem 3.2rem;
 }
 
+main::before {
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a rhoncus leo. Donec at scelerisque magna. Nullam vitae neque sit amet erat dignissim cursus ac ac lectus. Aliquam erat volutpat. Praesent at quam aliquet, ";
+    font-family: var(--ff-main);
+    color: var(--fc-main);
+    text-align: center;
+    line-height: 3.0rem;
+    font-size: var(--fs-main);
+    padding-bottom: 6.3rem;
+    display: flex;
+}
+
 main p {
     font-family: var(--ff-main);
     color: var(--fc-main);
@@ -56,6 +71,11 @@ main p {
     line-height: 3.0rem;
     font-size: var(--fs-main);
     padding-bottom: 6.3rem;
+}
+
+main div:nth-child(3),
+main div:nth-child(4) {
+    display: none;
 }
 
 .card {
@@ -86,6 +106,10 @@ main p {
     color: var(--fc-span);
 }
 
+.text-footer {
+    display: none;
+}
+
 @keyframes topdown {
     0% {
         opacity: 0;
@@ -112,6 +136,7 @@ main p {
 
 @media (min-width: 930px) {
     :root {
+        --ff-txt-header: 'Roboto', sans-serif;
         --ff-footer: 'Open Sans', sans-serif;
         --hue: 232;
         --fc-footer: hsl(var(--hue), 17%, 35%, 1);
@@ -119,17 +144,35 @@ main p {
 
     .page {
         display: grid;
-        grid-template-columns: 377px 1fr;
+        grid-template-columns: 47.7rem 1fr;
         grid-template-areas: "header main";
     }
 
     header {
         grid-area: header;
-        content: "";
+    }
+
+    header h1 {
+        height: 7.0rem;
+        font-size: 4.8rem;
+        padding: .6rem 0;
+    }
+
+    header p {
+        display: block;
+        font-family: 'Roboto', sans-serif;
+        font-size: 2.4rem;
+        text-align: center;
+        color: #FFFFFF; 
+        padding: 3.2rem 4.8rem;
     }
 
     main {
         grid-area: main;
+    }
+
+    main::before {
+        display: none;
     }
 
     main > p {
@@ -153,10 +196,12 @@ main p {
     }
 
     main div:nth-child(3) {
+        display: block;
         grid-area: card3;
     }
 
     main div:nth-child(4) {
+        display: block;
         grid-area: card4;
     }
 
@@ -181,6 +226,7 @@ main p {
     }
 
     .text-footer {
+        display: block;
         font-family: var(--ff-footer);
         font-size: 1.4rem; 
         padding: 0;
